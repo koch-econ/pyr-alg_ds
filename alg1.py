@@ -10,6 +10,12 @@ def bubble_sort(alist):
                 is_sorted = False
         list_length -= 1
     return alist
+#%%
+import math
+N=10000
+print(N**2)
+print(N*math.log(N))
+#%%
 
 
 print(bubble_sort([5, 7, 9, 1, 4, 2]))
@@ -71,7 +77,7 @@ def fib_rec(n: int) -> int:
     if n > 1:
         return fib_rec(n - 1) + fib_rec(n - 2)
 
-
+print(fib_rec(6))
 # %%
 import queue
 
@@ -86,7 +92,7 @@ def fib_rec2(n: int) -> int:
         return fib_rec2(n - 1) + fib_rec2(n - 2)
 
 
-print(fib_rec2(6))
+print(fib_rec2(10))
 
 
 def print_q(s_queue: queue.SimpleQueue):
@@ -112,7 +118,7 @@ def fib_rec_c(n: int) -> int:
         return fib_cache[n]
 
 
-print(fib_rec_c(6))
+print(fib_rec_c(10))
 print_q(fib_q)
 
 # %% [markdown]
@@ -124,9 +130,32 @@ print_q(fib_q)
 # при нехватке памяти из кэша вытесняются самые
 # малоиспользуемые в настоящий момент элементы
 
+#%%
+from functools import lru_cache
+
+@lru_cache(maxsize=4)
+def fib_rec2(n: int) -> int:
+    fib_q.put(n)
+    if n in (0, 1):
+        return n
+    if n > 1:
+        return fib_rec2(n - 1) + fib_rec2(n - 2)
+
+fib_q = queue.SimpleQueue()
+print(fib_rec2(10))
+print_q(fib_q)
+# %%
+def print_reverse():
+    s=input()
+    if s == 'q':
+        return
+    print_reverse()
+    print(s)
 
 # %%
+# %%
 def binary_search(ordered_list, search_value):
+    "поиск в упорядоченном списке"
     first = 0
     last = len(ordered_list) - 1
 
