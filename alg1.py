@@ -153,6 +153,8 @@ def print_reverse():
     print(s)
 
 # %%
+print_reverse()
+# %%
 # %%
 def binary_search(ordered_list, search_value):
     "поиск в упорядоченном списке"
@@ -176,7 +178,7 @@ def binary_search(ordered_list, search_value):
 # %%
 ord_list = sorted([12, 1, 5, 6, 5, 10])
 # %%
-binary_search(ord_list, 5)
+binary_search(ord_list, 2)
 
 
 # %%
@@ -197,5 +199,5 @@ def binary_search_recursive(ordered_list, search_value):
             return binary_search_recursive(ordered_list[middle + 1 :], search_value)
 
 
-print(binary_search_recursive([1, 5, 8, 9, 15, 20, 70, 72], 5))
+print(binary_search_recursive([1, 5, 8, 9, 15, 20, 70, 72], 2))
 # %%
