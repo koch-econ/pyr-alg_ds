@@ -100,17 +100,19 @@ if __name__ == "__main__":
 
 
 # This code is contributed by Adnan Aliakbar
-# %%  
+# %%   из книги Грокаем алгоритмы
+
 
 # %%
-## еще одна реализация с первым элементом в роли pivot
+## еще одна реализация с первым элементом в роли опорного (pivot)
 def partition(my_list, first_index, last_index):
     pivot = my_list[first_index]
     left_pointer = first_index + 1
     right_pointer = last_index
 
     while True:
-        # Iterate until the value pointed by left_pointer is greater than pivot or left_pointer is greater than last_index
+        # Iterate until the value pointed by left_pointer
+        # is greater than pivot or left_pointer is greater than last_index
         while my_list[left_pointer] < pivot and left_pointer < last_index:
             left_pointer += 1
 
@@ -145,4 +147,15 @@ my_list = [6, 2, 9, 7]
 quicksort(my_list, 0, len(my_list) - 1)
 print(my_list)
 
+# %%
+# из книги Грокаем алгоритмы (python 2.x->3)
+def quicksort_g ( array ) :
+    if len ( array ) < 2 :
+        return array
+    else:
+        pivot = array[ 0 ]
+        less = [ i for i in array [ 1 : ] if i <= pivot]
+        greater = [ i for i in array [ 1: ] if i > pivot]
+    return quicksort_g ( less ) + [ pivot ] + quicksort_g( greater )
+print (quicksort_g ( [ 10, 5 , 2 , 3 ] ))
 # %%

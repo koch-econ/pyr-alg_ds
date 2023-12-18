@@ -16,7 +16,14 @@
 
 # %%
 
-
+def xxx ( r ):
+    s = 0
+    for i in range(r):
+        s = s + 2 * i + 1
+    return s
+#%%
+print(xxx(5))
+#%%
 def euclid_gcd(m, n):
     x = m
     y = n

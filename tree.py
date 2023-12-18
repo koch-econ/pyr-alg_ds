@@ -90,7 +90,7 @@ class BinarySearchTree:
 
     def search(self, search_value):
         current_node = self.root
-        while current_node:
+        while current_node is not None:
             if search_value == current_node.data:
                 return True
             if search_value < current_node.data:
@@ -125,16 +125,7 @@ class BinarySearchTree:
                     else:
                         current_node = current_node.right_child
 
-    def pre_order(self, current_node):
-        # Check if current_node exists
-        if current_node:
-            # Print the value of the current_node
-            print(current_node.data)
-            # Call pre_order recursively on the appropriate half of the tree
-            self.pre_order(current_node.left_child)
-            self.pre_order(current_node.right_child)
-
-
+   
 # %%
 bst = BinarySearchTree()
 
@@ -148,7 +139,7 @@ bst.insert("d3")
 myTree = bst
 TreePrinter()
 # %%
-print(bst.search("b3"))
+print(bst.search("b5"))
 
 # %%[markdown]
 # ### Обход деревьев
@@ -202,7 +193,7 @@ def post_order(current_node):
         # печатаем значение верхнего узла
         print(current_node.data)
 
-
+#%%
 post_order(op_tree)
 # %%
 # поуровневый обход (Breadth First Search, BFS)
